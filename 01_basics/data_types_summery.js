@@ -37,3 +37,25 @@ console.log(typeof anotherId);
 
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+// stack (premitive), heap (non premetive)
+
+let myyoutubename = "nareshgouttam.com"
+let anothername = myyoutubename
+anothername = "Lucifer Gaming"
+
+console.log(anothername)
+console.log(myyoutubename)
+
+let userOne = {
+    email: "nareshgouttam@gmail.com",
+    upi : "naresh@ybl"
+}
+
+let userTwo = userOne
+
+userTwo.email = "kamaljoshi257@gmail.com"
+
+console.log(userOne.email)
+console.log(userTwo.email)
