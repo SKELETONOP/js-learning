@@ -109,16 +109,37 @@ form.addEventListener('submit', (e) => {
 ```
 
 ## project 3 solution code
+```html
+<!-- html section -->
+<div class="center">
+      <div id="banner"><span>Your local time</span></div>
+      <div id="clock"></div>
+      <div id="banner"><span>London Timing</span></div>
+      <div id="clock2"></div>
+    </div>
+```
+```css
+/* css section */
+#clock2 {
+        font-size: 40px;
+        background-color: orange;
+        padding: 20px 50px;
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+```
 
 ```javascript
-const clock = document.getElementById('clock');
-// const clock = document.querySelector('#clock')
+// js section 
+const clock = document.getElementById("clock");
+const clock2 = document.getElementById("clock2");
 
-setInterval(function () {
-  let date = new Date();
-  // console.log(date.toLocaleTimeString());
-  clock.innerHTML = date.toLocaleTimeString();
-}, 1000);
+setInterval(function(){
+  let date = new Date()
+  clock.innerHTML = date.toLocaleTimeString()
+  clock2.innerHTML = date.toLocaleTimeString("en-US", {timeZone: "America/New_York"});
+}, 1000)
+
 
 
 ```
