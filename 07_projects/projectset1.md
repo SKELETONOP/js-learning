@@ -36,30 +36,74 @@ buttons.forEach(function (button) {
 
 ```
 
-## project 2 solution
+## project 2 solution 
+```css
+/* css part need to be update in the html section */
+#results {
+          height: fit-content;
+          width: fit-content;
+          /* padding: 10px 20px; Adds spacing inside the box */
+          border: 2px solid black;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+          text-align: center;
+          font-weight: bold;
+          font-size: 18px;
+          transition: all 0.3s ease-in-out; /* Smooth transition effect */
+      }
+
+      /* When the result changes, make it pop */
+      #results span {
+          font-size: 22px;
+      }
+```
 
 ```javascript
+// javascript part need to be updated in the js section 
 const form = document.querySelector('form');
-// this usecase will give you empty
-// const height = parseInt(document.querySelector('#height').value)
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const height = parseInt(document.querySelector('#height').value);
   const weight = parseInt(document.querySelector('#weight').value);
   const results = document.querySelector('#results');
 
-  if (height === '' || height < 0 || isNaN(height)) {
-    results.innerHTML = `Please give a valid height ${height}`;
-  } else if (weight === '' || weight < 0 || isNaN(weight)) {
-    results.innerHTML = `Please give a valid weight ${weight}`;
+  if (isNaN(height) || height <= 0) {
+    results.innerHTML = `Please Give a Valid height ${height}`;
+    results.style.color = "black"; // Reset color
+  } else if (isNaN(weight) || weight <= 0) {
+    results.innerHTML = `Please Give a Valid weight ${weight}`;
+    results.style.color = "black"; // Reset color
   } else {
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
-    //show the result
-    results.innerHTML = `<span>${bmi}</span>`;
+
+    if (bmi < 18.6) {
+      results.innerHTML = `<span>${bmi}</span> -<br> You Have Underweight`;
+      results.style.color = "blue";
+      results.style.fontSize = "20px";
+      results.style.textAlign ="center";
+      results.style.marginRight ="50%";
+      results.style.padding ="10px 20px";
+    } else if (bmi >= 18.6 && bmi < 24.9) {
+      results.innerHTML = `<span>${bmi}</span> - <br> You Have Normal Weight`;
+      results.style.color = "green";
+      results.style.fontSize = "20px";
+      results.style.textAlign ="center";
+      results.style.marginRight ="50%";
+      results.style.padding ="10px 20px";
+    } else {
+      results.innerHTML = `<span>${bmi}</span> - <br> You Have Overweight`;
+      results.style.color = "red";
+      results.style.fontSize = "20px";
+      results.style.textAlign ="center"
+      results.style.marginRight ="50%";
+      results.style.padding ="10px 20px";
+    }
   }
 });
+
 
 
 ```
