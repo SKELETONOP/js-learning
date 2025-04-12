@@ -6,8 +6,10 @@
     <title>Closure aur chai</title>
 </head>
 <body style="background-color: #313131;">
-    <button id="orange">Orange</button>
-    <button id="green">Green</button>
+    <button id="red">red</button>
+    <button id="Blue">Blue</button>
+    <button id="pink">pink</button>
+    <button id="orange">orange</button>
 </body>
 
     <script>
@@ -52,6 +54,7 @@
 
     </script>
     <script>
+        colors = ["red", "Blue", "pink", "orange"]
         // document.getElementById("orange").onclick = function(){
         //     document.body.style.backgroundColor = `orange`
         // }
@@ -67,8 +70,10 @@
             }
         }
 
-        document.getElementById('orange').onclick = clickHandler("orange")
-        document.getElementById('green').onclick = clickHandler("green")
+        colors.forEach(element => {
+            document.getElementById(`${element}`).onclick = clickHandler(`${element}`)
+        });
+        
 
     </script>
 </html>
